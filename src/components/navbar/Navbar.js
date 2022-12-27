@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faXmark, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { Badge } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import cart from './cart.gif'
+import { useDispatch, useSelector } from 'react-redux';
+import { DELETE } from '../../redux/actions/Action'
 
 
 const Navbar = () => {
+    const navigate = useNavigate()
+
+    const getData = useSelector((state) => state.cartReducer.carts);
+    // console.log(getData);
+
+    const dispatch = useDispatch();
+    const [price, setPrice] = useState(0);
+    // console.log(price);
+
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -19,7 +30,24 @@ const Navbar = () => {
         setAnchorEl(null);
     };
 
+    const dlt = (id) => {
+        dispatch(DELETE(id))
+        navigate('/')
 
+    }
+
+    const total = () => {
+        let price = 0;
+        getData.map((e, k) => {
+            price = e.price * e.qnty + price;
+
+        })
+        setPrice(price);
+    }
+
+    useEffect(() => {
+        total()
+    }, [total])
     return (
         <div>
             <div className="navbar fixed shadow-md  z-50 w-full bg-[#E2A529]">
@@ -44,12 +72,14 @@ const Navbar = () => {
                             <li><a>Item 3</a></li>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">Burger World</a>
+                    <Link to='/' className="btn btn-ghost normal-case text-xl">Burger World</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <li> <Link to='/'>Home</Link></li>
                         <li> <Link to='/featureBurger'>Burger Items</Link></li>
+                        <li> <Link to='/card'>Food Item</Link></li>
+                        <li> <Link to='/chef'>Our chef</Link></li>
                         <li tabIndex={0}>
                             <a>
                                 Review
@@ -61,9 +91,9 @@ const Navbar = () => {
 
                             </ul>
                         </li>
-                        <li> <Link to='/chef'>Our chef</Link></li>
+
                         <li><a>About Us</a></li>
-                        <li> <Link to='/card'>Card</Link></li>
+
 
                     </ul>
                 </div>
@@ -80,7 +110,7 @@ const Navbar = () => {
 
 
                             <div className='px-10 '>
-                                <Badge badgeContent={4} color="success">
+                                <Badge badgeContent={getData.length} color="success">
                                     <FontAwesomeIcon className='h-[32px] text-[#0000FF]' icon={faCartShopping} />
 
                                 </Badge>
@@ -97,16 +127,80 @@ const Navbar = () => {
                                 'aria-labelledby': 'basic-button',
                             }}
                         >
-                            <div className='m-2' >
-                                <span className='flex flex-row-reverse '>
-                                    <FontAwesomeIcon onClick={handleClose} className='h-[30px] w-[30px] text-[#000] mr-3 mb-1 ' icon={faXmark} />
-                                </span>
+                            <span className='flex flex-row-reverse '>
+                                <FontAwesomeIcon onClick={handleClose} className='h-[30px] w-[30px] text-[#000] mr-3 mb-1 ' icon={faXmark} />
 
-                                <span className='flex ml-2'>
-                                    <p className='p-4 text-lg text-[#000] font-semibold'>Your Cart is Empty</p>
-                                    <img className='h-16 h-16 pr-2' src={cart} alt="Shoes" />
-                                </span>
-                            </div>
+                            </span>
+
+                            {
+                                getData.length ? <div>
+
+                                    <table className='mx-10'>
+                                        <thead>
+                                            <tr>
+                                                <th>Photo</th>
+                                                <th>Resturent Name</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {
+                                                getData.map((e) => {
+                                                    return (
+                                                        <>
+
+
+
+                                                            <tr>
+                                                                <td>
+                                                                    <NavLink onClick={handleClose} to={`/cardDetails/${e.id}`}>
+                                                                        <img className='p-2 h-[140px] w-[220px]' src={e.imgdata} alt='cart' />
+                                                                    </NavLink>
+
+                                                                </td>
+                                                                <td className='p-4'>
+                                                                    <NavLink onClick={handleClose} to={`/cardDetails/${e.id}`}>
+                                                                        <p> {e.rname}</p>
+                                                                        <p><strong>Price:</strong> ${e.price}</p>
+                                                                        <p><strong>Quantity: </strong>{e.qnty}</p>
+                                                                    </NavLink>
+                                                                    <p>
+                                                                        <FontAwesomeIcon onClick={() => dlt(e.id)} className='h-[30px] w-[30px] text-[#FF0000]  mx-4 my-1 cursor-pointer' icon={faTrashCan} />
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+
+
+
+
+
+
+                                                        </>
+                                                    )
+                                                })
+                                            }
+
+
+                                        </tbody>
+
+                                    </table>
+                                    <hr className='h-[3px] bg-[#E2A529] border-0 '></hr>
+                                    <p className='text-center text-xl '> <strong> Total: ${price}</strong></p>
+
+                                </div> :
+                                    <div className='m-2' >
+
+
+                                        <span className='flex ml-2'>
+                                            <p className='p-4 text-lg text-[#000] font-semibold'>Your Cart is Empty</p>
+                                            <img className='h-16 h-16 pr-2' src={cart} alt="Shoes" />
+                                        </span>
+                                    </div>}
+
+
+
+
+
 
                         </Menu>
 
@@ -114,8 +208,8 @@ const Navbar = () => {
 
                     </div>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 

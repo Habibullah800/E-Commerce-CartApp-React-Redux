@@ -12,6 +12,7 @@ import burger9 from './Feature-9.png';
 import imgBG from './chef.jpg';
 
 
+
 const FeatureBurger = () => {
     return (
         <section className='mb-16 mt-0 mx-12 pt-[66px] ' style={{ backgroundImage: `url(${imgBG})` }}>
@@ -34,7 +35,7 @@ const FeatureBurger = () => {
                             <span className='card-actions justify-end pr-8'>
                                 <h2 className="badge badge-outline mb-4 ">Price: $</h2>
                             </span>
-                            <button className="btn text-[#000] bg-[#F8EFBA] hover:bg-[#E2A529] border-[#EAB543]">Buy Now</button>
+                            <button className="btn text-[#000] bg-[#F8EFBA] hover:bg-[#E2A529] border-[#EAB543]">Add to Cart</button>
 
                         </div>
                     </div>
@@ -51,7 +52,7 @@ const FeatureBurger = () => {
                             <span className='card-actions justify-end pr-8'>
                                 <h2 className="badge badge-outline mb-4 ">Price: $</h2>
                             </span>
-                            <button className="btn text-[#000] bg-[#F8EFBA] hover:bg-[#E2A529] border-[#EAB543]">Buy Now</button>
+                            <button className="btn text-[#000] bg-[#F8EFBA] hover:bg-[#E2A529] border-[#EAB543]">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -67,7 +68,7 @@ const FeatureBurger = () => {
                             <span className='card-actions justify-end pr-8'>
                                 <h2 className="badge badge-outline mb-4 ">Price: $</h2>
                             </span>
-                            <button className="btn text-[#000] bg-[#F8EFBA] hover:bg-[#E2A529] border-[#EAB543]">Buy Now</button>
+                            <button className="btn text-[#000] bg-[#F8EFBA] hover:bg-[#E2A529] border-[#EAB543]">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -83,7 +84,7 @@ const FeatureBurger = () => {
                             <span className='card-actions justify-end pr-8'>
                                 <h2 className="badge badge-outline mb-4 ">Price: $</h2>
                             </span>
-                            <button className="btn text-[#000] bg-[#F8EFBA] hover:bg-[#E2A529] border-[#EAB543]">Buy Now</button>
+                            <button className="btn text-[#000] bg-[#F8EFBA] hover:bg-[#E2A529] border-[#EAB543]">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -99,7 +100,7 @@ const FeatureBurger = () => {
                             <span className='card-actions justify-end pr-8'>
                                 <h2 className="badge badge-outline mb-4 ">Price: $</h2>
                             </span>
-                            <button className="btn text-[#000] bg-[#F8EFBA] hover:bg-[#E2A529] border-[#EAB543]">Buy Now</button>
+                            <button className="btn text-[#000] bg-[#F8EFBA] hover:bg-[#E2A529] border-[#EAB543]">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -115,7 +116,7 @@ const FeatureBurger = () => {
                             <span className='card-actions justify-end pr-8'>
                                 <h2 className="badge badge-outline mb-4 ">Price: $</h2>
                             </span>
-                            <button className="btn text-[#000] bg-[#F8EFBA] hover:bg-[#E2A529] border-[#EAB543]">Buy Now</button>
+                            <button className="btn text-[#000] bg-[#F8EFBA] hover:bg-[#E2A529] border-[#EAB543]">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -131,7 +132,7 @@ const FeatureBurger = () => {
                             <span className='card-actions justify-end pr-8'>
                                 <h2 className="badge badge-outline mb-4 ">Price: $</h2>
                             </span>
-                            <button className="btn text-[#000] bg-[#F8EFBA] hover:bg-[#E2A529] border-[#EAB543]">Buy Now</button>
+                            <button className="btn text-[#000] bg-[#F8EFBA] hover:bg-[#E2A529] border-[#EAB543]">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -147,7 +148,7 @@ const FeatureBurger = () => {
                             <span className='card-actions justify-end pr-8'>
                                 <h2 className="badge badge-outline mb-4 ">Price: $</h2>
                             </span>
-                            <button className="btn text-[#000] bg-[#F8EFBA] hover:bg-[#E2A529] border-[#EAB543]">Buy Now</button>
+                            <button className="btn text-[#000] bg-[#F8EFBA] hover:bg-[#E2A529] border-[#EAB543]">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -163,7 +164,7 @@ const FeatureBurger = () => {
                             <span className='card-actions justify-end pr-8'>
                                 <h2 className="badge badge-outline mb-4 ">Price: $</h2>
                             </span>
-                            <button className="btn text-[#000] bg-[#F8EFBA] hover:bg-[#E2A529] border-[#EAB543]">Buy Now</button>
+                            <button className="btn text-[#000] bg-[#F8EFBA] hover:bg-[#E2A529] border-[#EAB543]">Add to Cart</button>
                         </div>
                     </div>
                 </div>
