@@ -4,6 +4,7 @@ import Card from '../card/Card';
 import Chef from '../chef/Chef';
 import Feature from '../feature/Feature';
 import FeatureBurger from '../featureBurger/FeatureBurger';
+import Hero from '../Hero/Hero';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <FeatureBurger></FeatureBurger>
             <Feature></Feature>
             <Card></Card>
+            <Hero></Hero>
             <Chef></Chef>
         </div>
     );

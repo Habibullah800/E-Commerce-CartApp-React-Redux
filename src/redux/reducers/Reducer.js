@@ -1,10 +1,7 @@
 
-
 const INIT_STATE = {
     carts: [],
 };
-
-
 
 export const cartReducer = (state = INIT_STATE, action) => {
     switch (action.type) {
@@ -23,15 +20,12 @@ export const cartReducer = (state = INIT_STATE, action) => {
                     carts: [...state.carts, temp]
                 }
             }
-
-
         case "RMV_CART":
             const data = state.carts.filter((e) => e.id !== action.payload)
             return {
 
                 ...state,
                 carts: data
-
             };
         case "RMV_ONE":
             const IteamIndex_dec = state.carts.findIndex((iteam) => iteam.id === action.payload.id);
@@ -51,16 +45,9 @@ export const cartReducer = (state = INIT_STATE, action) => {
                     carts: data
                 }
             }
-
         default:
-
             return state;
-
-
-
-
     }
-
 }
 
 

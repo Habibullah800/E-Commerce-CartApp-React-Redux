@@ -5,10 +5,10 @@ import feature from '../assets/FeatureBurger-2.png';
 
 const Feature = () => {
     return (
-        <div className='bg-[#F8EFBA] flex my-4'>
+        <div className='bg-[#F8EFBA] grid grid-cols-1 lg:grid-cols-2 gap-6 my-4'>
             <div className="card w-full bg-[#F8EFBA] ">
                 <div>
-                    <img class="mx-auto my-4 w-[450px] h-[250px]" src={feature} alt='bann' />
+                    <img class="mx-auto my-4 w-[300px] lg:w-[450px] h-[230px] lg:h-[250px] " src={feature} alt='bann' />
                 </div>
 
             </div>

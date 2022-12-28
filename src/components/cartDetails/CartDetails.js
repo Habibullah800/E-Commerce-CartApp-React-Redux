@@ -16,13 +16,11 @@ const CartDetails = () => {
 
     const getData = useSelector((state) => state.cartReducer.carts);
 
-
     const compare = () => {
         let compareData = getData.filter((e) => {
             return e.id == id
         })
         setData(compareData);
-
     }
 
     useEffect(() => {
@@ -38,39 +36,38 @@ const CartDetails = () => {
     }
     const remove = (iteam) => {
         dispatch(REMOVE(iteam))
-
     }
 
     return (
 
         <div className='pt-[70px] '>
-            <h3 className='text-4xl font-semibold text-[#6B3522] pb-2 '>Items Details Page</h3>
+            <h3 className='text-4xl font-semibold text-[#6B3522] pb-0 lg:pb-2 '>Items Details Page</h3>
             {
                 data.map((e) => {
                     return (
                         <>
-                            <section className='grid grid-cols-2 gap-4  px-[200px] py-20'>
+                            <section className='grid grid-cols-1  lg:grid-cols-2 gap-1 lg:gap-4 px-[0px] lg:px-[200px] pt-0 pb-6 lg:pb-20 lg:pt-20'>
                                 <div>
-                                    <img className='h-[280px]' src={e.imgdata} alt=''></img>
+                                    <img className='mx-auto h-[230px] w-[280px] lg:h-[280px]' src={e.imgdata} alt=''></img>
                                 </div>
                                 <div>
                                     <h2 className='text-2xl font-semibold text-[#000000] pb-2 '>Resturent: {e.rname}</h2>
-                                    <div className='grid grid-cols-2 gap-4'>
+                                    <div className='grid grid-cols-2 gap-0 lg:gap-4'>
                                         <div className='py-8 text-left text-base'>
-                                            <p className='h-12'><strong>Price:</strong> ${e.price}</p>
-                                            <p><strong>Dish:</strong> {e.address} </p>
+                                            <p className='h-12 pl-3'><strong>Price:</strong> ${e.price}</p>
+                                            <p className='pl-3'><strong>Dish:</strong> {e.address} </p>
                                         </div>
                                         <div className='py-8 text-left text-base'>
                                             <p><strong>Review:</strong> {e.somedata} </p>
                                             <p><strong>Rating:</strong> {e.rating}★</p>
                                         </div>
                                     </div>
-                                    <h2><strong>Total: {e.price * e.qnty} </strong></h2>
-                                    <div className='grid grid-cols-2 gap-4 py-2'>
+                                    <h2><strong>Total: ${e.price * e.qnty} </strong></h2>
+                                    <div className='grid grid-cols-2 gap-1 py-3'>
                                         <div className="grid grid-cols-4 place-items-center">
-                                            <span className=''>Quantity:</span>
+                                            <span className='pl-3'>Quantity:</span>
                                             <FontAwesomeIcon onClick={() => send(e)} className='px-2 py-2 bg-slate-300' icon={faPlus} />
-                                            <span className='text-2xl font-semibold px-2'>{e.qnty}</span>
+                                            <span className='text-2xl font-semibold px-0 lg:px-2'>{e.qnty}</span>
                                             <FontAwesomeIcon onClick={e.qnty <= 1 ? () => { dlt(e.id) } : () => remove(e)} className='px-2 bg-slate-300 py-2' icon={faMinus} />
                                         </div>
                                         <div className="">

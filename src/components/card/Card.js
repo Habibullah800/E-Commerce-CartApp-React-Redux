@@ -15,11 +15,17 @@ const Card = () => {
     const send = (e) => {
         dispatch(ADD(e));
     }
+    const showToastMessage = () => {
+        toast.success('Food added to Cart! Thanks.', {
+            position: toast.POSITION.BOTTOM_RIGHT
+
+        });
+    };
     return (
         <div className='pt-[66px]'>
             <h2 className='text-4xl font-semibold text-[#6B3522] pb-2 '>Our Extra Food Items</h2>
 
-            <div className='grid grid-cols-3 gap-6 mx-12' >
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-6 mx-0 lg:mx-12' >
 
                 {
                     data.map((element, id) => {
@@ -39,7 +45,9 @@ const Card = () => {
                                         </span>
                                         <button
                                             onClick={() => {
-                                                toast("Food is added to Cart! Thanks.");
+
+                                                showToastMessage();
+
                                                 send(element);
                                             }}
 
@@ -51,7 +59,9 @@ const Card = () => {
                     })
                 }
             </div>
-            <ToastContainer />
+            <ToastContainer
+
+            />
         </div>
     );
 };
