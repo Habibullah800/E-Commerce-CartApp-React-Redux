@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import imgBG from '../featureBurger/chef.jpg';
+import imgBG from '../assets/background.jpg';
 import Cardsdata from '../../Data';
 import { useDispatch } from 'react-redux';
 import { ADD } from '../../redux/actions/Action';
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

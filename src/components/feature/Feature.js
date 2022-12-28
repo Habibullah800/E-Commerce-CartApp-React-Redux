@@ -1,5 +1,5 @@
 import React from 'react';
-import feature from './big-burger-11562902444grmy1oetg2_low.png';
+import feature from '../assets/FeatureBurger-2.png';
 
 
 

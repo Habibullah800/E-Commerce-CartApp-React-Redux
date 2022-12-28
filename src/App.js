@@ -1,6 +1,5 @@
 import './App.css';
 import Navbar from './components/navbar/Navbar';
-import Banner from './components/banner/Banner';
 import Footer from './components/footer/Footer';
 import Chef from './components/chef/Chef';
 import Feature from './components/feature/Feature';
@@ -23,9 +22,6 @@ function App() {
         <Route path='/cardDetails/:id' element={<CartDetails />}></Route>
         <Route path='/card' element={<Card />}></Route>
       </Routes>
-
-
-
 
       <Footer></Footer>
     </div >

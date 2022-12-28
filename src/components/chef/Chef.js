@@ -1,9 +1,9 @@
 import React from 'react';
-import imgBG from './images/background.jpg';
-import shef1 from './images/chef1.jfif';
-import shef2 from './images/chef2.jfif';
-import shef3 from './images/chef3.jfif';
-import shef4 from './images/chef4.jpg';
+import imgBG from '../assets/background.jpg';
+import shef1 from '../assets/chef1.jfif';
+import shef2 from '../assets/chef2.jfif';
+import shef3 from '../assets/chef3.jfif';
+import shef4 from '../assets/chef4.jpg';
 
 const Chef = () => {
     return (

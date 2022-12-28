@@ -3,10 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faXmark, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { Badge } from '@mui/material';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import cart from './cart.gif'
+import cart from '../assets/cart.gif'
 import { useDispatch, useSelector } from 'react-redux';
 import { DELETE } from '../../redux/actions/Action'
 
@@ -15,11 +13,9 @@ const Navbar = () => {
     const navigate = useNavigate()
 
     const getData = useSelector((state) => state.cartReducer.carts);
-    // console.log(getData);
 
     const dispatch = useDispatch();
     const [price, setPrice] = useState(0);
-    // console.log(price);
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -33,21 +29,20 @@ const Navbar = () => {
     const dlt = (id) => {
         dispatch(DELETE(id))
         navigate('/')
-
     }
 
     const total = () => {
         let price = 0;
         getData.map((e, k) => {
             price = e.price * e.qnty + price;
-
         })
         setPrice(price);
     }
 
     useEffect(() => {
         total()
-    }, [total])
+    }, [total]);
+
     return (
         <div>
             <div className="navbar fixed shadow-md  z-50 w-full bg-[#E2A529]">
@@ -88,17 +83,12 @@ const Navbar = () => {
                             <ul className="p-2">
                                 <li><a>Add Review</a></li>
                                 <li><a>Delete Review</a></li>
-
                             </ul>
                         </li>
-
                         <li><a>About Us</a></li>
-
-
                     </ul>
                 </div>
                 <div className="navbar-end">
-
                     <div>
                         <button
                             id="basic-button"
@@ -107,16 +97,11 @@ const Navbar = () => {
                             aria-expanded={open ? 'true' : undefined}
                             onClick={handleClick}
                         >
-
-
                             <div className='px-10 '>
                                 <Badge badgeContent={getData.length} color="success">
                                     <FontAwesomeIcon className='h-[32px] text-[#0000FF]' icon={faCartShopping} />
-
                                 </Badge>
                             </div>
-
-
                         </button>
                         <Menu
                             id="basic-menu"
@@ -129,18 +114,14 @@ const Navbar = () => {
                         >
                             <span className='flex flex-row-reverse '>
                                 <FontAwesomeIcon onClick={handleClose} className='h-[30px] w-[30px] text-[#000] mr-3 mb-1 ' icon={faXmark} />
-
                             </span>
-
                             {
                                 getData.length ? <div>
-
                                     <table className='mx-10'>
                                         <thead>
                                             <tr>
                                                 <th>Photo</th>
                                                 <th>Resturent Name</th>
-
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -148,15 +129,11 @@ const Navbar = () => {
                                                 getData.map((e) => {
                                                     return (
                                                         <>
-
-
-
                                                             <tr>
                                                                 <td>
                                                                     <NavLink onClick={handleClose} to={`/cardDetails/${e.id}`}>
                                                                         <img className='p-2 h-[140px] w-[220px]' src={e.imgdata} alt='cart' />
                                                                     </NavLink>
-
                                                                 </td>
                                                                 <td className='p-4'>
                                                                     <NavLink onClick={handleClose} to={`/cardDetails/${e.id}`}>
@@ -169,43 +146,22 @@ const Navbar = () => {
                                                                     </p>
                                                                 </td>
                                                             </tr>
-
-
-
-
-
-
                                                         </>
                                                     )
                                                 })
                                             }
-
-
                                         </tbody>
-
                                     </table>
                                     <hr className='h-[3px] bg-[#E2A529] border-0 '></hr>
                                     <p className='text-center text-xl '> <strong> Total: ${price}</strong></p>
-
                                 </div> :
                                     <div className='m-2' >
-
-
                                         <span className='flex ml-2'>
                                             <p className='p-4 text-lg text-[#000] font-semibold'>Your Cart is Empty</p>
                                             <img className='h-16 h-16 pr-2' src={cart} alt="Shoes" />
                                         </span>
                                     </div>}
-
-
-
-
-
-
                         </Menu>
-
-                        {/* <MenuItem onClick={handleClose}>Profile</MenuItem> */}
-
                     </div>
                 </div>
             </div >
